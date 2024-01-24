@@ -30,7 +30,7 @@ function locoScroll() {
   ScrollTrigger.refresh();
 }
 
-// locoScroll();
+locoScroll();
 
 
 function cursorEffect() {
@@ -84,8 +84,8 @@ function page2Animation() {
 
   tl.from(".elem2 h2", {
     y: 120,
-    stagger: 0.2,
-    duration: 1,
+    stagger: 0.1,
+    duration: 2,
     scrollTrigger: {
       trigger: "#page2",
       scroller: "#main",
@@ -97,3 +97,54 @@ function page2Animation() {
 }
 
 page2Animation();
+
+
+function page3Animation() {
+
+  var tl2 = gsap.timeline();
+
+
+    tl2.from(".page3-elem-2 p", {
+    y: 30,
+    stagger: 0.10,
+    duration: 2,
+    scrollTrigger: {
+      trigger: ".page3-elem-2",
+      scroller: "#main",
+      start: "top 40%",
+      end: "top 20%",
+      scrub: 2,
+    }
+  })
+
+
+  tl2.from(".page3-elem2 h2", {
+    y: 120,
+    stagger: 0.1,
+    duration: 2,
+    scrollTrigger: {
+      trigger: ".page3-elem-2",
+      scroller: "#main",
+      start: "top 10%",
+      end: "top 0%",
+      scrub: 2,
+    }
+  })
+}
+
+page3Animation();
+
+
+var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
