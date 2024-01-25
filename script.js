@@ -174,7 +174,7 @@ var swiper = new Swiper(".mySwiper", {
 });
 }
 
-// sliderAnimation();
+sliderAnimation();
 
 var tl3=gsap.timeline();
 tl3.from(".footer-down h1 span",{
