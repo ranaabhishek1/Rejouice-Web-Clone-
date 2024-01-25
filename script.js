@@ -32,7 +32,6 @@ function locoScroll() {
 
 locoScroll();
 
-
 function cursorEffect() {
   let page1Content = document.querySelector("#page1-content");
   let cursor = document.querySelector("#cursor");
@@ -62,12 +61,42 @@ function cursorEffect() {
 
 cursorEffect();
 
+
+var tl=gsap.timeline();
+
+tl.from("#loader h3",{
+x:40,
+opacity:0,
+duration:1,
+stagger:0.1,
+})
+
+tl.to("#loader h3",{
+  opacity:0,
+  x:-40,
+  stagger:0.1,
+})
+
+tl.to("#loader",{
+  opacity:0,
+})
+
+tl.to("#loader",{
+  display:"none",
+})
+
+tl.from("#page1-content h1 span",{
+  y:100,
+  opacity:0,
+  stagger:0.1,
+})
+
+
+
+
 function page2Animation() {
 
-  var tl = gsap.timeline();
-
-
-  tl.from(".elem p", {
+  gsap.from(".elem p", {
     y: 30,
     stagger: 0.10,
     duration: 2,
@@ -82,7 +111,7 @@ function page2Animation() {
   })
 
 
-  tl.from(".elem2 h2", {
+  gsap.from(".elem2 h2", {
     y: 120,
     stagger: 0.1,
     duration: 2,
@@ -101,10 +130,8 @@ page2Animation();
 
 function page3Animation() {
 
-  var tl2 = gsap.timeline();
-
-
-    tl2.from(".page3-elem-2 p", {
+  
+    gsap.from(".page3-elem-2 p", {
     y: 30,
     stagger: 0.10,
     duration: 2,
@@ -118,7 +145,7 @@ function page3Animation() {
   })
 
 
-  tl2.from(".page3-elem2 h2", {
+  gsap.from(".page3-elem2 h2", {
     y: 120,
     stagger: 0.1,
     duration: 2,
@@ -134,17 +161,33 @@ function page3Animation() {
 
 page3Animation();
 
-
+function sliderAnimation(){
+  
 var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
+  slidesPerView: 1,
+  spaceBetween: -500,
+  loop: true,
+  autoplay: {
+    delay: 1500,
+    disableOnInteraction: true,
+  },
+});
+}
+
+// sliderAnimation();
+
+var tl3=gsap.timeline();
+tl3.from(".footer-down h1 span",{
+  y:100,
+  opacity:0,
+  stagger:0.1,
+  scrollTrigger: {
+    trigger: ".footer-down",
+    scroller: "#main",
+    markers:true,
+    start: "top 70%",
+    end: "top 45%",
+    scrub: 2,
+  }
+})
+
