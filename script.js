@@ -184,7 +184,7 @@ tl3.from(".footer-down h1 span",{
   scrollTrigger: {
     trigger: ".footer-down",
     scroller: "#main",
-    markers:true,
+    
     start: "top 70%",
     end: "top 45%",
     scrub: 2,
